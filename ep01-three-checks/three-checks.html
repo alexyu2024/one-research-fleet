@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The 3 Checks</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 210mm; height: 297mm; padding: 12mm 14mm 9mm; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1B2A3A; background: #F7F9FA;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; display: flex; flex-direction: column; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.2mm solid #1B2A3A; padding-bottom: 4mm; }
+  h1 { font-size: 27pt; font-weight: 700; letter-spacing: -0.3pt; line-height: 1; }
+  h1 span { color: #C4561F; }
+  .sub { font-size: 10.5pt; color: #3E5163; margin-top: 2.5mm; }
+  .src { text-align: right; font-size: 8.5pt; color: #6B7C8C; line-height: 1.45; }
+  .src b { color: #1B2A3A; font-size: 10pt; }
+  .card { background: #FFFFFF; border: 0.6mm solid #1B2A3A; border-radius: 3mm; padding: 3.5mm 5mm 3.5mm; margin-top: 4mm; position: relative; }
+  .card h2 { font-size: 14pt; font-weight: 700; display: flex; align-items: baseline; gap: 3mm; }
+  .card h2 .n { display: inline-flex; width: 8mm; height: 8mm; border-radius: 50%; background: #1B2A3A; color: #FFFFFF; font-size: 11pt; align-items: center; justify-content: center; flex: none; transform: translateY(1mm); }
+  .card .when { font-size: 9pt; color: #6B7C8C; margin: 0.5mm 0 2mm 11mm; }
+  .cols { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 6mm; margin-left: 11mm; }
+  ul { list-style: none; }
+  li { font-size: 9.8pt; line-height: 1.32; padding-left: 6.5mm; position: relative; margin-bottom: 1.2mm; }
+  li::before { content: ""; position: absolute; left: 0; top: 1mm; width: 3.4mm; height: 3.4mm; border: 0.45mm solid #1B2A3A; border-radius: 0.6mm; }
+  .rule { margin-top: 1.5mm; font-size: 9.6pt; font-weight: 700; color: #C4561F; }
+  .note { font-size: 8.6pt; color: #3E5163; line-height: 1.35; margin-top: 1.5mm; }
+  .fill { font-size: 8.5pt; color: #6B7C8C; text-transform: uppercase; letter-spacing: 0.6pt; }
+  .line { border-bottom: 0.3mm solid #9AA6B2; height: 6.5mm; }
+  .pair { display: grid; grid-template-columns: auto 1fr; column-gap: 2mm; align-items: end; font-size: 9.5pt; font-weight: 600; }
+  .pair .line { height: 7mm; }
+  .funnel { display: flex; gap: 1.5mm; margin-top: 2mm; align-items: stretch; }
+  .funnel div { flex: 1; font-size: 8pt; line-height: 1.25; padding: 1.4mm 2mm; border-radius: 1.5mm; background: #DCEBF7; color: #1F6FB8; }
+  .funnel div:nth-child(2) { background: #E6ECF0; color: #1B2A3A; }
+  .funnel div:nth-child(3) { background: #FBE4D6; color: #C4561F; }
+  .funnel b { display: block; font-size: 9pt; }
+  footer { margin-top: auto; padding-top: 4mm; display: flex; justify-content: space-between; font-size: 8.5pt; color: #6B7C8C; border-top: 0.3mm solid #9AA6B2; }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>The <span>3 Checks</span></h1>
+      <div class="sub">Three decisions an AI fleet can't make for you. Run them before you spend the compute.</div>
+    </div>
+    <div class="src"><b>@OneResearchFleet</b><br>Episode 1 · One Researcher, One Research Fleet<br>Free to use, print and share</div>
+  </header>
+
+  <section class="card">
+    <h2><span class="n">1</span>Which question?</h2>
+    <div class="when">Before you start a project, or before you turn a result into a paper.</div>
+    <div class="cols">
+      <div>
+        <ul>
+          <li>Who actually cares? Name a person, an industry, or a decision that depends on it.</li>
+          <li>If it works, what changes?</li>
+          <li>Can I write a one-line title that makes someone want to read it?</li>
+        </ul>
+        <div class="rule">Fail any one → it's a foundation, not a headline.</div>
+        <div class="note">Method is credibility; it isn't the finding. Then let a cheap model attack the claim. Each time it survives, it gets narrower and harder to argue with.</div>
+      </div>
+      <div>
+        <div class="fill">My one-line title</div>
+        <div class="line"></div><div class="line"></div>
+        <div class="fill" style="margin-top: 3mm">Who cares / what changes</div>
+        <div class="line"></div><div class="line"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="n">2</span>Could it change my next decision?</h2>
+    <div class="when">Before every run: simulation, experiment, or overnight AI job.</div>
+    <div class="cols">
+      <div>
+        <ul>
+          <li>List the results that could come back.</li>
+          <li>For each one, write what you would do differently.</li>
+          <li>Compute, money and your attention are all limited. Which one is the bottleneck right now?</li>
+        </ul>
+        <div class="rule">No possible result changes what you do → don't run it. It's decoration.</div>
+        <div class="funnel">
+          <div><b>Wide end</b>cheap, fast checks on everything</div>
+          <div><b>Survivors</b>expensive simulation</div>
+          <div><b>Narrow end</b>real experiment + your attention</div>
+        </div>
+      </div>
+      <div>
+        <div class="fill">If the result is…  → I will…</div>
+        <div class="line"></div><div class="line"></div><div class="line"></div>
+        <div class="fill" style="margin-top: 3mm">Bottleneck this week</div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="n">3</span>Kill criteria first</h2>
+    <div class="when">Before you look at any result.</div>
+    <div class="cols">
+      <div>
+        <ul>
+          <li>Write down what would prove it, and what would kill it. Date it.</li>
+          <li>Send the AI to find counter-examples, not to prove you right.</li>
+          <li>Too clean, too confident, too good? Trace it back to its inputs and assumptions before you believe it.</li>
+        </ul>
+        <div class="rule">A result that good is a question, not an answer.</div>
+        <div class="note">AI makes trying cheap. It also makes you wrong faster, and more convincingly. What catches it is your judgment of what's physically possible.</div>
+      </div>
+      <div>
+        <div class="pair"><span>It holds if</span><div class="line"></div></div>
+        <div class="line"></div>
+        <div class="pair" style="margin-top: 2mm"><span>It's dead if</span><div class="line"></div></div>
+        <div class="line"></div>
+        <div class="pair" style="margin-top: 2mm"><span>Written on</span><div class="line"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>AI makes trying cheap. Judgment decides what survives.</span>
+    <span>youtube.com/@OneResearchFleet</span>
+  </footer>
+</body>
+</html>
